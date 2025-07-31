@@ -15,11 +15,8 @@ from pathlib import Path
 # Add the parent directory to the path for absolute imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-try:
-    from langgraph_analyzer.llms import LanguageModel
-except ImportError:
-    # Fallback to simplified LLM for CLI testing
-    from langgraph_analyzer.simple_llms import SimpleLLM as LanguageModel
+# Use simplified LLM for LangGraph project
+from langgraph_analyzer.simple_llms import SimpleLLM as LanguageModel
 from langgraph.graph import StateGraph, END
 from langchain_core.runnables import RunnableConfig
 from langsmith import traceable

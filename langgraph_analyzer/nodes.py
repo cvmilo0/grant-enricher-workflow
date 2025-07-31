@@ -25,11 +25,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from langchain_core.messages import HumanMessage, SystemMessage
-try:
-    from langgraph_analyzer.llms import LanguageModel
-except ImportError:
-    # Fallback to simplified LLM for CLI testing
-    from langgraph_analyzer.simple_llms import SimpleLLM as LanguageModel
+# Use simplified LLM for LangGraph project
+from langgraph_analyzer.simple_llms import SimpleLLM as LanguageModel
 from langsmith import traceable
 
 from langgraph_analyzer.schemas import SubsidyState, SubsidyAnalysisResult
